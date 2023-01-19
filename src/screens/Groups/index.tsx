@@ -4,10 +4,12 @@ import { FlatList } from "react-native";
 import { GroupCard } from "@components/GroupCard";
 import { Header } from "@components/Header";
 import { Highlight } from "@components/Highlight";
+import { ListEmpety } from "@components/ListEmpety";
+import { Button } from "@components/Button";
 import * as S from "./style";
 
 export function Groups() {
-  const [groups, setGroups] = useState<string[]>(["Time A", "Amigos"]);
+  const [groups, setGroups] = useState<string[]>([]);
 
   return (
     <S.Container>
@@ -17,7 +19,13 @@ export function Groups() {
         data={groups}
         keyExtractor={(item) => item}
         renderItem={({ item }) => <GroupCard title={item} />}
+        contentContainerStyle={groups.length === 0 && { flex: 1 }}
+        ListEmptyComponent={() => (
+          <ListEmpety message="Sua lista esta vazia!" />
+        )}
       />
+
+      <Button title="Criar nova turma" />
     </S.Container>
   );
 }
