@@ -1,4 +1,4 @@
-import styled  from "styled-components";
+import styled, {css}  from "styled-components/native";
 
 export const Container = styled.View`
     flex: 1;
@@ -15,3 +15,20 @@ export const Form = styled.View`
 
     flex-direction: row;
 `;
+
+export const HeaderList = styled.View`
+    width: 100%;
+
+    flex-direction: row;
+    align-items: center;
+
+    margin: 32px 0 12px;
+`
+
+export const NumbersOfPlayers = styled.Text`
+    ${({theme}) => css`
+        color: ${theme.COLORS.GRAY_200};
+        font-family: ${theme.FONT_FAMILY.BOLD};
+        font-size: ${theme.FONT_SIZE.SM}px;
+        `}
+`
